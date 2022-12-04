@@ -2,5 +2,6 @@
   (cd ~/server/bin/.build && cmake ../src && make)
   (cd ~/server/bin && rm -rf ./.build && ln -s ~/server/bin/src/lua ../release.tmp/lua)
 
-  (cd ~/server && rm -rf release && mv ./release.tmp ./release)
   (cd ~/server/bin/build && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 ../src)
+
+  (cd ~/server && ([ ! -d './release' ] || rm -rf release) && mv ./release.tmp ./release)
